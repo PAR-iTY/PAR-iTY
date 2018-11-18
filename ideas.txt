@@ -3,3 +3,5 @@ run a js function to DESTROY ALL FALSE PRIMES - ALL WHO COWER BENEATH G�DELS W
 try to identify the already highlighted DOM nodes again, and run each index num through an optimised isPrime algorithm, cos this double loop shit is doin me 'ead 'in.
 
 query ::before? when does before content load? when/why does style.background/color not work? what else can be selected for?
+
+use 7 / 14 segment display font? https://github.com/keshikan/DSEG

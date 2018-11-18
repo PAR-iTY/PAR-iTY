@@ -1,35 +1,55 @@
+// remove even indexes
+// function noEvens(list) {
+// }
+
 // style the heathen fake primes
 function styleFalsePrime() {
-  // get full range
-  const children = document.querySelectorAll(".tile");
+  const primeParent = document.querySelector(".floor");
+  // get LIVE node list [has pseudos]
+  let children = primeParent.childNodes; // length is 4043 now but will update with node list
+  const sLength = children.length; // is 4043 as a static int
+  // however children[sLength - 1] = .primer (children indexed from zero, length is not)
 
-  children.forEach(child => {
-    child.style;
-  });
+  // for ()
+  let i = 1;
+
+  // const childArray = Array.from(children);
+  // childArray.pop();
+  // console.log(childArray);
+  // while (i <= sLength) {
+  //   // if i is even
+  //   if ((i & 1) === 0) {
+  //     console.log(i); // returns evens
+  //   }
+  //   // if i is odd
+  //   if ((i & 1) === 1) {
+  //     console.log(i); // returns odds
+  //   }
+  //   i++;
+  // }
+  // test remove an element from live node list
+  // children[0].parentNode.removeChild(children[0]);
+
+  // console.log(children);
+  // children.forEach(child => {
+
   /*
   https://stackoverflow.com/a/24768853
-  incredible plain js way of 'stealing' non DOM information from CSS psuedo-content
+  incredible way of 'stealing' non DOM information from CSS psuedo-content
 */
   // Get the color value of .element:before
-  var color = window
-    .getComputedStyle(document.querySelector(".element"), ":before")
-    .getPropertyValue("color");
+  // var color = window
+  //   .getComputedStyle(document.querySelector(".element"), ":before")
+  //   .getPropertyValue("color");
 
   // Get the content value of .element:before
-  var content = window
-    .getComputedStyle(document.querySelector(".element"), ":before")
-    .getPropertyValue("content");
+  // var content = window
+  //   .getComputedStyle(document.querySelector(".element"), ":before")
+  //   .getPropertyValue("content");
 
   // tar them with black paint!
   // console.log(children[heretic]);
 }
-
-// analyse a given n by modulo division
-// function dividePrime(i) {
-// }
-
-// let heretics = [],
-//   zealots = [];
 
 // analyse if n is a prime number
 // function isPrime(n) {
@@ -61,7 +81,12 @@ function styleFalsePrime() {
 //   }
 // };
 
-window.onload = function() {
+window.onload = function () {
+
+  // bit-check if odd
+  // if ((i & 1) === 1) {
+  styleFalsePrime();
+  // }
   // evaulate ints from 2 up to n
   // for (let i = 2; i < 2021; i++) {
   // get returned prime value
@@ -72,6 +97,4 @@ window.onload = function() {
   // console.log(isPrime(i));
   // }
   // }
-  // console.log(heretics, heretics.length);
-  // console.log(zealots, zealots.length);
 };

@@ -3,7 +3,7 @@
   div.floor {
     grid-template-columns: repeat(1, 1fr) !important;
   }
-  p {
+  p.prime-count {
     font-size: small;
   }
 }
@@ -35,7 +35,7 @@
     grid-template-columns: repeat(23, 1fr) !important;
   }
 }
-/* next nice prime column number after 23 = 31? */
+
 body {
   counter-reset: nature-count prime-count nonprime-count;
   background: white;
@@ -43,19 +43,14 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Lucida Console", Monaco, monospace;
-  /* width: 100vw; */
 }
+
 /* prime tiled floor */
 div.floor {
   display: grid;
   grid-auto-flow: row;
-  /* grid-template-columns: repeat(1, 1fr); */
   grid-template-rows: repeat(auto-fill, 1fr);
   /* FIT OR FILL? https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/ */
-  /* justify-items: stretch; */
-  /* inner horizontal alignment */
-  /* align-items: stretch; */
-  /* inner vertical alignment */
 }
 
 div.tile {
@@ -65,9 +60,6 @@ div.tile {
   color: red;
   transition: background 0.5s ease-in-out;
   text-align: center;
-  /* circles experiment */
-  /* border-radius: 50%;
-  height: 4.6em;  */
 }
 
 div.tile:hover {
@@ -86,18 +78,21 @@ div.tile::before {
 div.tile:last-child::before {
   content: counter(nature-count);
 }
+
 div.tile:first-child,
 div.tile:nth-child(2n + 4),
 div.tile:nth-child(3n + 6),
 div.tile:nth-child(5n + 10),
 div.tile:nth-child(7n + 14)
-/* div.tile:nth-child(11n + 22),
+/*
+div.tile:nth-child(11n + 22),
 div.tile:nth-child(13n + 26),
 div.tile:nth-child(17n + 34),
 div.tile:nth-child(19n + 38),
 div.tile:nth-child(23n + 46),
 div.tile:nth-child(29n + 58),
-div.tile:nth-child(31n + 62) */
+div.tile:nth-child(31n + 62)
+*/
  {
   counter-increment: nature-count nonprime-count;
   background: white;
@@ -108,23 +103,3 @@ p.prime-count::before {
   content: "Count:" counter(nature-count) "; Non-Primes:"
     counter(nonprime-count) "; Primes:" counter(prime-count);
 }
-
-/* div.tile:nth-child(2n + 4) {
-  background: yellow;
-  color: yellow;
-}
-
-div.tile:nth-child(3n + 6) {
-  background: red;
-  color: red;
-}
-
-div.tile:nth-child(5n + 10) {
-  background: purple;
-  color: purple;
-}
-
-div.tile:nth-child(7n + 14) {
-  background: blue;
-  color: blue;
-} */

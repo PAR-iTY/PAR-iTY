@@ -11,60 +11,14 @@
 /* for-tablet-portrait-up */
 @media only screen and (min-width: 450px) {
   div.floor {
-<<<<<<< HEAD
     grid-template-columns: repeat(12, 1fr) !important;
-=======
-    grid-template-columns: repeat(11, 1fr) !important;
->>>>>>> 97469c2d9c569eb3b6fee36b4329cde8cb48cad2
   }
 }
-
-/* for-tablet-landscape-up */
-<<<<<<< HEAD
-/* @media only screen and (min-width: 900px) {
-  div.floor {
-    grid-template-columns: repeat(12, 1fr) !important;
-  }
-} */
-
-/* for-desktop-up */
-/* @media only screen and (min-width: 1200px) {
-  div.floor {
-    grid-template-columns: repeat(17, 1fr) !important;
-  }
-} */
-
-/* for-big-desktop-up */
-/* @media only screen and (min-width: 1800px) {
-  div.floor {
-    grid-template-columns: repeat(23, 1fr) !important;
-  }
-} */
 
 /* include local 14-segment display font */
 @font-face {
   font-family: DSEG14;
   src: url(DSEG14Classic-Regular.woff2);
-=======
-@media only screen and (min-width: 900px) {
-  div.floor {
-    grid-template-columns: repeat(13, 1fr) !important;
-  }
-}
-
-/* for-desktop-up */
-@media only screen and (min-width: 1200px) {
-  div.floor {
-    grid-template-columns: repeat(17, 1fr) !important;
-  }
-}
-
-/* for-big-desktop-up */
-@media only screen and (min-width: 1800px) {
-  div.floor {
-    grid-template-columns: repeat(23, 1fr) !important;
-  }
->>>>>>> 97469c2d9c569eb3b6fee36b4329cde8cb48cad2
 }
 
 body {
@@ -73,12 +27,8 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-<<<<<<< HEAD
   /* font-family: "Lucida Console", Monaco, monospace; */
   font-family: DSEG14;
-=======
-  font-family: "Lucida Console", Monaco, monospace;
->>>>>>> 97469c2d9c569eb3b6fee36b4329cde8cb48cad2
 }
 
 /* prime tiled floor */
@@ -92,11 +42,7 @@ div.floor {
 div.tile {
   /* Everything for prime numbers can go here because non-primes will override it */
   counter-increment: nature-count prime-count;
-<<<<<<< HEAD
   background: red;
-=======
-  background: rgba(255, 0, 0, 1);
->>>>>>> 97469c2d9c569eb3b6fee36b4329cde8cb48cad2
   color: red;
   transition: background 0.5s ease-in-out;
   text-align: center;
@@ -113,7 +59,6 @@ div.tile:last-child::before {
   content: counter(nature-count);
 }
 
-<<<<<<< HEAD
 /* 
   AIM:  to capture all 307 primes within 2027 range. base my website off a 2027 Vision:
 
@@ -178,21 +123,6 @@ div.tile:nth-child(44n + 88),
 /* div.tile:nth-child(45n + 90), */
 div.tile:nth-child(46n + 92)
 {
-=======
-div.tile:first-child,
-div.tile:nth-child(2n + 4),
-div.tile:nth-child(3n + 6),
-div.tile:nth-child(5n + 10),
-div.tile:nth-child(7n + 14),
-div.tile:nth-child(11n + 22),
-div.tile:nth-child(13n + 26),
-div.tile:nth-child(17n + 34),
-div.tile:nth-child(19n + 38),
-div.tile:nth-child(23n + 46),
-div.tile:nth-child(29n + 58),
-div.tile:nth-child(31n + 62)
- {
->>>>>>> 97469c2d9c569eb3b6fee36b4329cde8cb48cad2
   counter-increment: nature-count nonprime-count;
   background: white;
   color: white;
@@ -201,13 +131,4 @@ div.tile:nth-child(31n + 62)
 p.prime-count::before {
   content: "Count:" counter(nature-count) "; Non-Primes:"
     counter(nonprime-count) "; Primes:" counter(prime-count);
-<<<<<<< HEAD
-=======
-}
-
-/* the final prime */
-div.primer {
-  background: rgb(252, 62, 109);
-  color: rgb(252, 62, 109);
->>>>>>> 97469c2d9c569eb3b6fee36b4329cde8cb48cad2
 }

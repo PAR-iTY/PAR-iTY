@@ -1,62 +1,47 @@
-// HIGH LEVEL NEW ASTRACTION PLAN:
-/*
-listeners pass parameters 'pink' or 'pinky' and true (for addClass) or false (for removeClass)
-listener code sorts adds from removes, and both listeners pass to the SAME loop function
-which runs a forEach loop over tiles.
-*/
+// NEW IDEA: WEB AUDIO / WEB CAM --> EMOJI-CANNON OF UDP TERMINAL DATA
+// fits with new IG idea: UDP_EMOJI_CANNON / asciicannon / UDP_emoji
+
+// base changer: validate changed #base value, use isInteger etc
+// contenteditable and Document.execCommand() are connected...h
+// contenteditable is targeted by the 'input' event!! easy
 
 const tiles = document.querySelectorAll(".tile");
 
-// false means inactive: default colors. true means add pink/y colors
-let firstPink = 0, tile2counter = false,
-  tile3counter = false;
+// even means not pink/y.
+// odd means add pink/y colors
+let pinkC = 0,
+  pinkyC = 0;
 
 // pink/y tile listeners
 tiles[1].addEventListener("click", () => {
-  // handles first click paint bug
-  if (firstPink === 0) {
-    firstPink++;
-    tiles[1].click();
+  // bit test if even --> add
+  if ((pinkC & 1) === 0) {
+    togglePinks("pink", "add");
+  } else {
+    // is odd --> remove
+    togglePinks("pink", "remove");
   }
-  togglePinks("pink");
+  pinkC++;
 });
 
-tiles[2].addEventListener("click", togglePinks.bind(this, "pinky"));
+tiles[2].addEventListener("click", () => {
+  // bit test if even --> add
+  if ((pinkyC & 1) === 0) {
+    togglePinks("pinky", "add");
+  } else {
+    // is odd --> remove
+    togglePinks("pinky", "remove");
+  }
+  pinkyC++;
+});
 
-function togglePinks(color) {
-  console.log(color, tile2counter);
-
-  // run loop once and sort within
+function togglePinks(color, action) {
   tiles.forEach(tile => {
-
-    // check for a tile 3 call
-    if (color === "pinky") {
-      if (tile3counter === true) {
-        // remove pinky class to all tiles
-        tile.classList.remove("pinky");
-        // now reset tile3counter logic
-        tile3counter = false;
-      } else if (tile3counter === false) {
-        // add pinky class to all tiles
-        tile.classList.add("pinky");
-        // now reset tile3counter logic
-        tile3counter = true;
-      }
+    if (action === "add") {
+      tile.classList.add(color);
     }
-
-    // check a for tile 2 call
-    if (color === "pink") {
-      if (tile2counter === true) {
-        // remove pink class to all tiles
-        tile.classList.remove("pink");
-        // now reset tile2counter logic
-        tile2counter = false;
-      } else if (tile2counter === false) {
-        // add pink class to all tiles
-        tile.classList.add("pink");
-        // now reset tile2counter logic
-        tile2counter = true;
-      }
+    if (action === "remove") {
+      tile.classList.remove(color);
     }
   });
 }

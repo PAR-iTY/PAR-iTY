@@ -48,8 +48,15 @@ div.tile {
   text-align: center;
 }
 
-div.tile:hover {
-  background: rgba(255, 0, 0, 0.3);
+div.tile:nth-child(2) {
+  background: pink;
+  color: pink;
+  cursor: pointer;
+}
+div.tile:nth-child(3) {
+  background: rgb(255, 146, 164);
+  color: rgb(255, 146, 164);
+  cursor: pointer;
 }
 
 div.tile::before {
@@ -119,13 +126,28 @@ div.tile:nth-child(39n + 78),
 div.tile:nth-child(41n + 82),
 div.tile:nth-child(42n + 84),
 div.tile:nth-child(43n + 86),
-div.tile:nth-child(44n + 88),
+div.tile:nth-child(44n + 88)
 /* div.tile:nth-child(45n + 90), */
-div.tile:nth-child(46n + 92)
+/* div.tile:nth-child(46n + 92) */
 {
   counter-increment: nature-count nonprime-count;
   background: white;
   color: white;
+}
+
+div.pink.tile:nth-child(2n + 4) {
+  background-color: pink;
+  color: pink;
+}
+
+div.pinky.tile:nth-child(13n + 26) {
+  background-color: rgb(255, 146, 164);
+  color: rgb(255, 146, 164);
+}
+
+div.tile:hover {
+  opacity: 0.5;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 p.prime-count::before {

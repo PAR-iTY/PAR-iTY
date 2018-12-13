@@ -8,10 +8,22 @@
   }
 }
 
-/* for-tablet-portrait-up */
+/* for-phone-to-tablet-up */
 @media only screen and (min-width: 450px) {
+  /* between 450 and ~700 is an awkward size for 12 columns...perhaps better fix by lowering font size? */
+  div.floor {
+    grid-template-columns: repeat(9, 1fr) !important;
+  }
+}
+
+/* for-tablet-portrait-up */
+@media only screen and (min-width: 700px) {
   div.floor {
     grid-template-columns: repeat(12, 1fr) !important;
+  }
+  /* reveal base-column editor */
+  div.base-msg {
+    display: inline-block !important;
   }
 }
 
@@ -30,14 +42,15 @@ body {
   font-family: DSEG14;
 }
 
-/* topbar: user base input */
+/* base input for user (wrapper) */
 div.base-msg {
-  display: inline-block;
+  display: none;
   width: 100%;
   text-align: center;
   padding: 1em 0;
 }
 
+/* base input for user */
 div#base {
   display: inline-block;
   color: red;
@@ -46,13 +59,6 @@ div#base {
   background-color: rgba(255, 0, 0, 0.05);
   padding: 0.1em 0.1em;
 }
-
-/* div.base-msg input {
-  position: absolute;
-  font-family: DSEG14;
-  height: 1.25em;
-  width: 4em;
-} */
 
 /* prime tiled floor */
 div.floor {
@@ -89,7 +95,7 @@ div.tile:last-child::before {
   content: counter(nature-count);
 }
 
-/* 
+/*
   AIM:  to capture all 307 primes within 2027 range. base my website off a 2027 Vision:
 
         I will wield the Seive of Erathanymoose (*Eratosthenes) to the square root of
@@ -152,18 +158,20 @@ div.tile:nth-child(43n + 86),
 div.tile:nth-child(44n + 88)
 /* div.tile:nth-child(45n + 90), */
 /* div.tile:nth-child(46n + 92) */
-{
+ {
   counter-increment: nature-count nonprime-count;
   background: white;
   color: white;
 }
 
-div.pink.tile:nth-child(2n + 4) {
+/* clicking tile 2 applies this pink class to selected nth children */
+div.pink.tile:nth-child(33n + 13) {
   background-color: pink;
   color: pink;
 }
 
-div.pinky.tile:nth-child(13n + 26) {
+/* clicking tile 3 applies this pinky class to selected nth children */
+div.pinky.tile:nth-child(13n - 109) {
   background-color: rgb(255, 146, 164);
   color: rgb(255, 146, 164);
 }

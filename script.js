@@ -4,63 +4,70 @@
 // one time loop changing visibility: hidden of each RED prime??
 // fukk idk kinda comfusimg
 
+// .. IDEA: Write a listener for #col >
+
+// NEXT IDEA: change 'base' to 'col' / 'column' b/c it base is a lie lmao
+
 const tiles = document.querySelectorAll(".tile"),
-  base = document.getElementById("base"),
-  columns = document.getElementById("columns");
+  col = document.getElementById("col"),
+  floor = document.querySelector(".floor");
 
 // catch earliest input to validate and handle exceptions
-base.addEventListener("keydown", e => {
+col.addEventListener("keydown", e => {
   // initial value of DOM element
   const v1 = e.target.innerHTML,
     reg = /^\d+$/;
-  // flag to wait til later to update DOM
-  let runReg = true;
+  // if set to false, an allowed non-numeric input was used
+  let isInt = true;
 
   // console.log(e.cancelable); // true
 
   if (e.key === "Backspace" || e.key === "Delete") {
     // allow special keys: delete, backspace, ...?
-    runReg = false;
+    isInt = false;
   }
 
-  // check if #base is about to be empty (representing zero columns)
-  if (v1.length === 1 && runReg === false) {
-    columns.setAttribute(
+  // safety check if #col is about to be empty (representing zero columns)
+  if (v1.length === 1 && isInt === false) {
+    floor.setAttribute(
       "style",
       "grid-template-columns: repeat(1, 1fr) !important;"
     );
   }
 
   // if ANY OTHER KEYDOWN OCCURS: run regex blocker
-  if (runReg === true && reg.test(e.key) === false) {
-    console.log("false! ", e.key);
+  if (isInt === true && reg.test(e.key) === false) {
+    console.log("isInt = false", e.key);
+    // prevents event bubbling to 'input' below
     e.preventDefault();
   } else {
-    console.log("true! ", e.key);
+    console.log("isInt = true", e.key);
   }
 });
 
 // if input reaches this later listener and is less than n columns, apply currently displayed value
-base.addEventListener("input", e => {
-  console.log(e.key);
-  // why does this return undefined? is 'input' not technically a keyboardEvent?
+col.addEventListener("input", () => {
+  console.log("reaches input");
+  // why does console.log(e.key); return undefined here? is 'input' not technically a keyboardEvent?
   // is the event being blocked by regex tests preventDefault? might looking into bubbling help? (ughhhh)
 
   // get users value to apply
-  const baseInt = parseInt(base.innerHTML);
+  const colInt = parseInt(col.innerHTML);
 
-  // if within sanity n
-  if (baseInt < 151) {
+  // if, for sanity, user input is within an arbitrary n apply column change
+  if (colInt < 151) {
     // hardcode set columns (due to media queries and !importants in css file... cleanup !importants !!)
-    columns.setAttribute(
+    floor.setAttribute(
       "style",
-      `grid-template-columns: repeat(${baseInt}, 1fr) !important;`
+      `grid-template-columns: repeat(${colInt}, 1fr) !important;`
     );
   }
 });
 
-// even means not pink/y.
+// prime numbers 2 and 3 are speshal - give them pink/y power/s
+
 // odd means add pink/y colors
+// even means remove pink/y colors
 let pinkC = 0,
   pinkyC = 0;
 
@@ -68,10 +75,10 @@ let pinkC = 0,
 tiles[1].addEventListener("click", () => {
   // bit test if even --> add
   if ((pinkC & 1) === 0) {
-    togglePinks("pink", "add");
+    toggleTiles("pink", "add");
   } else {
     // is odd --> remove
-    togglePinks("pink", "remove");
+    toggleTiles("pink", "remove");
   }
   pinkC++;
 });
@@ -80,16 +87,16 @@ tiles[1].addEventListener("click", () => {
 tiles[2].addEventListener("click", () => {
   // bit test if even --> add
   if ((pinkyC & 1) === 0) {
-    togglePinks("pinky", "add");
+    toggleTiles("pinky", "add");
   } else {
     // is odd --> remove
-    togglePinks("pinky", "remove");
+    toggleTiles("pinky", "remove");
   }
   pinkyC++;
 });
 
-// generic tile loop accepts a color and an action
-function togglePinks(color, action) {
+// generic tile loop accepts a color[class name] and an action
+function toggleTiles(color, action) {
   tiles.forEach(tile => {
     if (action === "add") {
       tile.classList.add(color);

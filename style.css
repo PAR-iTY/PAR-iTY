@@ -21,8 +21,8 @@
   div.floor {
     grid-template-columns: repeat(12, 1fr) !important;
   }
-  /* reveal base-column editor */
-  div.base-msg {
+  /* reveal column editor */
+  div.col-msg {
     display: inline-block !important;
   }
 }
@@ -42,16 +42,16 @@ body {
   font-family: DSEG14;
 }
 
-/* base input for user (wrapper) */
-div.base-msg {
+/* col input for user (wrapper) */
+div.col-msg {
   display: none;
   width: 100%;
   text-align: center;
   padding: 1em 0;
 }
 
-/* base input for user */
-div#base {
+/* col input for user */
+div#col {
   display: inline-block;
   color: red;
   cursor: cursor;

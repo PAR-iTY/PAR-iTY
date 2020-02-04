@@ -182,6 +182,5 @@ div.tile:hover {
 }
 
 p.prime-count::before {
-  content: "Count:" counter(nature-count) "; Non-Primes:"
-    counter(nonprime-count) "; Primes:" counter(prime-count);
+  content: 'Count:' counter(nature-count) '; Non-Primes:' counter(nonprime-count) '; Primes:' counter(prime-count);
 }

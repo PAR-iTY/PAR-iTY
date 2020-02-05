@@ -95,23 +95,6 @@ div.tile:last-child::before {
   content: counter(nature-count);
 }
 
-/*
-  AIM:  to capture all 307 primes within 2027 range. base my website off a 2027 Vision:
-
-        I will wield the Seive of Erathanymoose (*Eratosthenes) to the square root of
-        the Vision: Math.sqrt(2027) = 45.02221673796171, our sarcred Limited One.
-        Many of our members ponder the intricacies of Limit's Powers, which are undoubt-
-        alably great. Yet, does the Limit possess the Power of limitless Limits? Is the
-        Limit itself, possibly Limited in its giving of Limits, lest it confuse its own
-        nature with an act of limitlessness.
-
-        I digress, we can seive for primes up to the Limited One, and, upon completion
-        of the appropriate ceramony (there is always a limited supply of hats avaiable)
-        they graciously allow us to seive for the Third and Final of our tri-sect, The
-        One Whose Rule Cannot Be Directly Ascribed, The Limit++ !
-
-        [it worked first try! next: layer this into a bg-interactive landscape]
-*/
 div.tile:first-child,
 div.tile:nth-child(2n + 4),
 div.tile:nth-child(3n + 6),

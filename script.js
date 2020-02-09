@@ -41,8 +41,6 @@ col.addEventListener('keydown', e => {
 // if input reaches this later listener and is less than n columns, apply currently displayed value
 col.addEventListener('input', () => {
   console.log('reaches input');
-  // why does console.log(e.key); return undefined here? is 'input' not technically a keyboardEvent?
-  // is the event being blocked by regex tests preventDefault? might looking into bubbling help? (ughhhh)
 
   // get users value to apply
   const colInt = parseInt(col.innerHTML);
@@ -95,22 +93,3 @@ function toggleTiles(color, action) {
     }
   });
 }
-
-// now all primes are correctly highlighted red: JS can use this to avoid recalculating primes
-/*
-https://stackoverflow.com/a/24768853
-incredible way of 'stealing' non DOM information from CSS psuedo-content
-*/
-
-// Get the color value of .element:before
-// let colors = window
-//     .getComputedStyle(document.querySelectorAll(".tile"), ":before")
-//     .getPropertyValue("color");
-
-// Get the content value of .element:before
-// var content = window
-//     .getComputedStyle(document.querySelectorAll(".tile"), ":before")
-//     .getPropertyValue("content");
-
-// tar them with black paint!
-// console.log(children[heretic]);

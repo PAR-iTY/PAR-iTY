@@ -23,21 +23,18 @@ col.addEventListener('keydown', e => {
     isInt = false;
   }
 
-  // safety check if #col is about to be empty (representing zero columns)
+  // safety check for zero columns - set 1 column minimum
   if (v1.length === 1 && (e.key === 'Backspace' || e.key === 'Delete')) {
-    console.log(
-      'not fixed, doesnt detect any repeat cases...is v1 wrong? is preventDefault affecting value states? can i force update v1 or select it differently? should i not be using length?'
-    );
     floor.setAttribute('style', 'grid-template-columns: repeat(1, 1fr) !important;');
   }
 
   // if ANY OTHER KEYDOWN OCCURS: run regex blocker
-  if (isInt === true && reg.test(e.key) === false) {
-    console.log('isInt = false', e.key);
-    // prevents event bubbling to 'input' below
+  if (isInt && !reg.test(e.key)) {
+    console.log('not allowed', e.key);
+    // prevents event bubbling to 'input' event below (where DOM is updated)
     e.preventDefault();
   } else {
-    console.log('isInt = true', e.key);
+    console.log('allowed', e.key);
   }
 });
 

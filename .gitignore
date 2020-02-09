@@ -6,3 +6,6 @@ fonts/
 
 # background ideas 
 story.txt
+
+# vscode settings
+.vscode/

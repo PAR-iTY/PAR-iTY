@@ -1,7 +1,11 @@
-# ignore all shell scripts in repo
+# shell scripts
 *.sh
 
-# ignore unused fonts
+# unused fonts
 fonts/
 
+# background ideas 
 story.txt
+
+# .gitignore
+.gitignore

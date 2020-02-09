@@ -66,27 +66,26 @@ let pinkC = 0,
 
 // pink tile listener
 tiles[1].addEventListener('click', () => {
-  // bit test if even --> add
-  if ((pinkC & 1) === 0) {
-    toggleTiles('pink', 'add');
-  } else {
-    // is odd --> remove
-    toggleTiles('pink', 'remove');
-  }
+  addPinks('pink', pinkC);
   pinkC++;
 });
 
 // pinky tile listener
 tiles[2].addEventListener('click', () => {
-  // bit test if even --> add
-  if ((pinkyC & 1) === 0) {
-    toggleTiles('pinky', 'add');
-  } else {
-    // is odd --> remove
-    toggleTiles('pinky', 'remove');
-  }
+  addPinks('pinky', pinkyC);
   pinkyC++;
 });
+
+function addPinks(color, count) {
+  console.log('addPinks');
+  // bit test if even --> add
+  if ((count & 1) === 0) {
+    toggleTiles(color, 'add');
+  } else {
+    // is odd --> remove
+    toggleTiles(color, 'remove');
+  }
+}
 
 // generic tile loop accepts a color[class name] and an action
 function toggleTiles(color, action) {

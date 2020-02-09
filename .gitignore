@@ -8,4 +8,7 @@ fonts/
 story.txt
 
 # vscode settings
-.vscode/
+vscode/
+
+# ignore all hidden
+.*

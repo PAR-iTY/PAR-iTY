@@ -9,6 +9,3 @@ story.txt
 
 # vscode settings
 vscode/
-
-# ignore all hidden
-.*
